@@ -1,0 +1,44 @@
+<!doctype html>
+<head>
+  <meta charset="utf-8">
+  <title>IT 411 - Jennifer Kania - Assignment 4- Click Anywhere</title>
+  <link href="stylesheets/main.css" rel="stylesheet">
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script>
+    $(function() {
+        
+        function clear_list() {
+            $("li").each(function() {
+                $(this).remove();
+            });                    
+        }//end clear list
+   
+        //when we click we want to capture x, y coord's and add a li to the page
+        $( document ).on("click", function( event) {
+            var valPageX = event.pageX;
+            var valPageY = event.pageY;
+              $( "ol#clicks" ).append("<li> pageX: " + valPageX + ", pageY: " + valPageY + "</li>");
+
+            });
+        
+        $("#clear").click(function(e) {
+                e.stopPropagation();
+               clear_list();
+            });
+
+    }); //end function
+      
+  </script>
+</head>
+<body>
+<h1>IT 411 - Jennifer Kania - A4 - Click Anywhere</h1>
+<hr />
+
+    <button id="clear">Clear Values</button>
+    <div id="output">
+    <ol id="clicks"></ol>
+    </div>
+
+<footer>Created by Jennifer Kania</footer>
+</body>
+</html>
